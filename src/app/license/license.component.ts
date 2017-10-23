@@ -1,29 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 import { Personal } from '../data/formData.model';
 import { FormDataService } from '../data/formData.service';
+import { WizardPage } from '../interfaces/wizardpage';
 
 @Component({
-    selector: 'mt-wizard-license', templateUrl: './license.component.html'
+    selector: 'app-license', templateUrl: './license.component.html'
 })
 
-export class LicenseComponent implements OnInit {
-    title = 'Please tell us about yourself.';
+export class LicenseComponent implements OnInit, WizardPage {
+    title = 'license agreement';
     personal: Personal;
     form: any;
-
-    constructor(private formDataService: FormDataService) {
+    isFirst: true;
+    isLast: false;
+    constructor(private formDataService: FormDataService, private router: Router) {
     }
 
     ngOnInit() {
         this.personal = this.formDataService.getPersonal();
-        console.log('License feature loaded!');
     }
 
-    save(form: any) {
-        if (!form.valid)
-            return;
-
+    next() {
         this.formDataService.setPersonal(this.personal);
+        this.router.navigateByUrl('/personal');
+    }
+    previous() {
     }
 }

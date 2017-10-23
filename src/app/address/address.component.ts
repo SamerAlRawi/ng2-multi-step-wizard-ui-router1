@@ -4,7 +4,7 @@ import { Address } from '../data/formData.model';
 import { FormDataService } from '../data/formData.service';
 
 @Component({
-    selector: 'mt-wizard-address'
+    selector: 'app-address'
     , templateUrl: './address.component.html'
 })
 

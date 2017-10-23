@@ -1,8 +1,8 @@
-import { Injectable }                        from '@angular/core';
+import { Injectable } from '@angular/core';
 
-import { FormData, Personal, Address }       from './formData.model';
-import { WorkflowService }                   from '../workflow/workflow.service';
-import { STEPS }                             from '../workflow/workflow.model';
+import { FormData, Personal, Address } from './formData.model';
+import { WorkflowService } from '../workflow/workflow.service';
+import { STEPS } from '../workflow/workflow.model';
 
 @Injectable()
 export class FormDataService {
@@ -12,7 +12,7 @@ export class FormDataService {
     private isWorkFormValid: boolean = false;
     private isAddressFormValid: boolean = false;
 
-    constructor(private workflowService: WorkflowService) { 
+    constructor(private workflowService: WorkflowService) {
     }
 
     getPersonal(): Personal {
@@ -35,11 +35,11 @@ export class FormDataService {
         this.workflowService.validateStep(STEPS.personal);
     }
 
-    getWork() : string {
+    getWork(): string {
         // Return the work type
         return this.formData.work;
     }
-    
+
     setWork(data: string) {
         // Update the work type only when the Work Form had been validated successfully
         this.isWorkFormValid = true;
@@ -48,7 +48,7 @@ export class FormDataService {
         this.workflowService.validateStep(STEPS.work);
     }
 
-    getAddress() : Address {
+    getAddress(): Address {
         // Return the Address data
         var address: Address = {
             street: this.formData.street,
@@ -87,7 +87,7 @@ export class FormDataService {
     isFormValid() {
         // Return true if all forms had been validated successfully; otherwise, return false
         return this.isPersonalFormValid &&
-                this.isWorkFormValid && 
-                this.isAddressFormValid;
+            this.isWorkFormValid &&
+            this.isAddressFormValid;
     }
 }

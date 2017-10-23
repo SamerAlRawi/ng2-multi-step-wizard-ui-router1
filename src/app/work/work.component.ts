@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormDataService } from '../data/formData.service';
 
 @Component({
-    selector: 'mt-wizard-work', templateUrl: './work.component.html'
+    selector: 'app-work', templateUrl: './work.component.html'
 })
 
 export class WorkComponent implements OnInit {
