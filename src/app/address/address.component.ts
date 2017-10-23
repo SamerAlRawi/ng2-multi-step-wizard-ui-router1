@@ -1,18 +1,18 @@
-import { Component, OnInit }   from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import { Address }             from '../data/formData.model';
-import { FormDataService }     from '../data/formData.service';
+import { Address } from '../data/formData.model';
+import { FormDataService } from '../data/formData.service';
 
-@Component ({
-    selector:     'mt-wizard-address'
-    ,templateUrl: 'app/address/address.component.html'
+@Component({
+    selector: 'mt-wizard-address'
+    , templateUrl: './address.component.html'
 })
 
 export class AddressComponent implements OnInit {
     title = 'Where do you live?';
     address: Address;
     form: any;
-    
+
     constructor(private formDataService: FormDataService) {
     }
 
@@ -22,9 +22,9 @@ export class AddressComponent implements OnInit {
     }
 
     save(form: any) {
-        if (!form.valid) 
+        if (!form.valid)
             return;
-        
+
         this.formDataService.setAddress(this.address);
     }
 }
